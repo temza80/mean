@@ -1,0 +1,79 @@
+<!-- Sidebar -->
+<div id="sidebar">
+
+    <!-- Logo -->
+    <h1 id="logo"><a href="/posts">Главная</a></h1>
+
+    <!-- Nav -->
+    <nav id="nav">
+    <div id="tag_sky" [innerHtml]="skyTag"></div>
+    <button id='tag_find_toggle' (click)="showSearch($event)">Развернуть поиск по нескольким тегам</button>
+   
+    <div class="tag_panel"  id="many_tags">
+    <form id="tags_form" action='/posts/tags/multi' method='POST'>
+    <input id='input_tags' name="tags" type='hidden' value=''>
+<div id="search_tags_line" class="tags_line">Теги:</div> 
+<div 
+class="tag_list" [innerHtml]="tagList"></div> <!--Список тегов <button id="tag_toggle" 
+onclick='show_tags(event,this)'>&#9660</button--> 
+<button type='submit' name='and'
+class="find_by_tags" (click)="tagSearchSubmit()">Найти посты со всеми тегами</button> 
+<button type='submit' name='or'
+class="find_by_tags" (click)="tagSearchSubmit()">Найти посты для каждого тега</button> 
+<button 
+id="clear_tags" (click)="clearTags($event)">Очистить</button></form> </div>
+
+
+
+
+        <ul *ngIf="user!=null && user.status=='a'">
+           <li><a href="/users">Пользователи</a></li><!-- class="current"-->
+            <li><a href="/tags">Тэги</a></li>
+            <li><a href="/admin/unpublished_posts">Удаленные посты</a></li>
+            <li><a href="/admin/unpublished_comments">Удаленные комментарии</a></li>
+        </ul>
+        
+    </nav>
+
+    <!-- Search -->
+    <section class="box search">
+        <form method="post" action="#">
+            <input type="text" class="text" name="search" placeholder="Search" />
+        </form>
+    </section>
+
+    <!-- Text -->
+    <section class="box text-style1">
+        <div class="inner">
+            <p>
+                <strong>Инфо:</strong> Сайт принадлежит AnnaMaka<a href="mailto:">Написать</a>.
+            </p>
+        </div>
+    </section>
+
+    <!-- Recent Posts -->
+
+
+    <!-- Recent Comments -->
+    <section class="box recent-comments">
+        <header>
+            <h2>Последние комментарии</h2>
+        </header>
+        <ul>
+          
+
+            <li *ngFor="let comment of comments"><a href="/post/{{comment.post_id}}/#comment_{{comment._id}}">{{comment.post.substring(0,70)+'...'}}</a></li>
+          
+        </ul>
+    </section>
+    <section class="box calendar">
+   <app-calendar></app-calendar>
+    </section>
+  
+
+    <!-- Copyright -->
+    <ul id="copyright">
+        <li>&copy; Untitled.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+    </ul>
+
+</div>

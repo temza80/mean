@@ -1,0 +1,4 @@
+
+<div *ngIf="user" id="username_div" class="button">Привет, {{user.username}}<a href="/logout">Валим</a></div>
+<div *ngIf="unemail" id="username_div" class="button">Адрес {{unemail}} не подтвержден. <a href="#" id="resend_email" (click)="resend_email(unemail)"> Переслать подтверждающий код</a></div>
+<div *ngIf="unemail==null && user==null"  id="username_div" class="button"><a href="/login">Вход</a></div>

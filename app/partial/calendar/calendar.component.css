@@ -1,0 +1,26 @@
+#calendar3 {
+        width: 100%;
+        font: monospace;
+        line-height: 1.2em;
+        font-size: 15px;
+        text-align: center;
+    }
+    #calendar3 thead tr:last-child {
+        font-size: small;
+        color: yellow;
+    }
+    #calendar3 tbody td {
+        color: white;
+    }
+    #calendar3 tbody td:hover {
+        background:red;
+    }
+    #calendar3 tbody td:nth-child(n+6), #calendar3 .holiday, #calendar3 tbody td:nth-child(n+6) a {
+        color: rgb(231, 140, 92);
+    }
+    #calendar3 tbody td.today {
+        outline: 3px solid red;
+    }
+    #calendar3 a{
+        border: 1px solid white;
+    }
